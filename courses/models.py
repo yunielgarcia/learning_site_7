@@ -54,13 +54,21 @@ class Question(models.Model):
     prompt = models.TextField()
 
     class Meta:
-        ordering = ['order',]
+        ordering = ['order', ]
 
     def get_absolute_url(self):
         return self.quiz.get_absolute_url()
 
     def __str__(self):
         return self.prompt
+
+
+class MultipleChoiceQuestion(Question):
+    shuffle_answers = models.BooleanField(default=False)
+
+
+class TrueFalseQuestion(Question):
+    pass
 
 
 class Answer(models.Model):
@@ -70,7 +78,7 @@ class Answer(models.Model):
     correct = models.BooleanField(default=False)
 
     class Meta:
-        ordering = ['order',]
+        ordering = ['order', ]
 
     def __str__(self):
         return self.text

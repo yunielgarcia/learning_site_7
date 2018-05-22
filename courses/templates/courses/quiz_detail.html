@@ -16,7 +16,7 @@
                 {% for question in step.question_set.all %}
                     <li>
                         <h2>{{ question.prompt }}</h2>
-                        {% for answer in question.answers_set.all %}
+                        {% for answer in question.answer_set.all %}
                             <div class="callout">
                                 {{ answer.text }}
                             </div>
